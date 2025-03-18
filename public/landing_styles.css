@@ -1,0 +1,447 @@
+/* Base Styles */
+:root {
+    --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+    --gradient-purple: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: black;
+    color: white;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Header */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    backdrop-filter: blur(12px);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .logo-image {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .logo-text {
+    font-weight: 500;
+    color: white;
+  }
+  
+  .nav {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+  }
+  
+  .nav-link {
+    font-size: 0.875rem;
+    color: rgb(209, 213, 219);
+    transition: color 0.2s;
+  }
+  
+  .nav-link:hover {
+    color: white;
+  }
+  
+  .download-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .download-button:hover {
+    background-color: rgb(229, 231, 235);
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  .interactive-grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+  }
+  
+  .shine-border {
+    position: relative;
+    z-index: 10;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  
+  .hero-content {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .hero-title {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.025em;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 3.75rem;
+    }
+  }
+  
+  .hero-description {
+    color: rgb(156, 163, 175);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .demo-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .demo-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .play-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .download-button-hero {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .download-button-hero:hover {
+    background-color: rgb(229, 231, 235);
+  }
+  
+  .hero-image-container {
+    position: relative;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  
+  .hero-image-wrapper {
+    position: relative;
+  }
+  
+  .hero-background {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4rem;
+  }
+  
+  .hero-app-preview {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    width: 90%;
+    height: 70%;
+    display: flex;
+  }
+  
+  .preview-left {
+    flex: 1;
+    padding-right: 0.5rem;
+  }
+  
+  .preview-right {
+    flex: 1;
+    padding-left: 0.5rem;
+  }
+  
+  .preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  
+  /* Features Section */
+  .features-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .features-container {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.6));
+  }
+  
+  .section-description {
+    color: rgb(156, 163, 175);
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .features-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .feature-card {
+    position: relative;
+    border-radius: 0.75rem;
+    background: linear-gradient(to bottom, rgba(38, 38, 38, 0.1), rgba(38, 38, 38, 0.3));
+    padding: 1px;
+    backdrop-filter: blur(12px);
+  }
+  
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    padding: 1px;
+    background: black;
+    margin: 1px;
+    z-index: -1;
+  }
+  
+  .feature-card > * {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem;
+  }
+  
+  .feature-image {
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-description {
+    color: rgb(156, 163, 175);
+  }
+  
+  /* Partners Section */
+  .partners-section {
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+  
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  }
+  
+  .marquee-content {
+    display: flex;
+    min-width: 100%;
+    gap: 1rem;
+    padding: 1rem 0;
+    animation: marquee 30s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .partner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12rem;
+    height: 4rem;
+  }
+  
+  .partner-logo {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+  
+  .partner-logo:hover {
+    opacity: 1;
+  }
+  
+  /* Integration Section */
+  .integration-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .integration-container {
+    max-width: 56rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .integration-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .integration-icon {
+    border-radius: 0.5rem;
+  }
+  
+  .integration-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .primary-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+  }
+  
+  .primary-button:hover {
+    background-color: rgb(229, 231, 235);
+  }
+  
+  .outline-button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+  }
+  
+  .outline-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
