@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   accessToken: String,
   uniqueKey: { 
     type: String,
-    default: () => Math.random().toString(36).substring(2, 25) 
+    default: () => "actd-"+Math.random().toString(36).substring(2, 50)
   },
   activity: {
     type: Object,

@@ -2,10 +2,11 @@ const express = require('express');
 const rateLimitMiddleware = require('../middleware/rateLimit');
 const User = require('../models/user');
 const authenticateWithToken = require('../middleware/authWithToken');
+const apiLimiter = require('../middleware/rateLimit');
 const router = express.Router();
 
 
-router.post('/setActivity', authenticateWithToken, (req, res) => {
+router.post('/setActivity', apiLimiter,  authenticateWithToken, (req, res) => {
     const apiKey = req.apiKey;
 
     const activity = req.body.activity;
