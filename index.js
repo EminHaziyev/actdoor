@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
-const connectMongo = require('connect-mongo');
+const MongoStore = require('connect-mongo').default;
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const apiRoutes = require('./routes/apiRoutes');
@@ -32,7 +32,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  store: mongoStore  // Store sessions in MongoDB
+  store:  MongoStore.create({ mongoUrl: process.env.MONGO_URI })  
 }));
 app.use(passport.initialize());
 app.use(passport.session());
