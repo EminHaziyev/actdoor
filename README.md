@@ -60,7 +60,8 @@ API link: `https://actdoor.onrender.com/api/getActivity/{username}`
 - [@Emin Haziyev](https://www.github.com/EminHaziyev)
 
 
-
+## Stats
+https://stats.uptimerobot.com/8qCRqIfWYC
 
 ## License
 
