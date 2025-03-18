@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
+const connectMongo = require('connect-mongo');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const apiRoutes = require('./routes/apiRoutes');
@@ -16,6 +17,9 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.log('Error connecting to MongoDB:', err));
 
+
+const mongoStore = connectMongo(session);
+
 // Middleware
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -24,6 +28,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
+  store: new mongoStore({ mongooseConnection: mongoose.connection }), // Using MongoDB for session store
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -37,4 +42,3 @@ app.use('/api', apiRoutes);
 
 // Start Server
 app.listen(3000, () => console.log('Server started on 3000'));
-
