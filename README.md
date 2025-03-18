@@ -53,7 +53,14 @@ API link: `https://actdoor.onrender.com/api/getActivity/{username}`
 ## Upcoming features
 `?type=raw` for custom designs
 
+## Iframe
+For `?type=square `
 
+`<iframe src="https://actdoor.onrender.com/api/getActivity/EminHaziyev?type=square&theme=dark" style="width:fit-content; overflow: hidden" width="190px" height="240px" frameborder="0"></iframe>`
+
+For `?type=rectangle`
+
+`<iframe src="https://actdoor.onrender.com/api/getActivity/EminHaziyev?type=rectangle&theme=dark" style="width:fit-content; overflow: hidden" width="190px" height="340px" frameborder="0"></iframe>`
 
 ## Authors
 
