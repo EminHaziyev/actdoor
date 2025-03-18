@@ -17,8 +17,12 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.log('Error connecting to MongoDB:', err));
 
+const mongoStore = new connectMongo({
+  mongooseConnection: mongoose.connection,
+  collection: 'sessions'
+});
 
-const mongoStore = connectMongo(session);
+
 
 // Middleware
 app.use(express.static('public'));
