@@ -52,3 +52,18 @@ API link: `https://actdoor.onrender.com/api/getActivity/{username}`
 
 ## Upcoming features
 `?type=raw` for custom designs
+
+
+
+## Authors
+
+- [@Emin Haziyev](https://www.github.com/EminHaziyev)
+
+
+
+
+## License
+
+[GPL 3.0](https://choosealicense.com/licenses/gpl-3.0/)
+
+
