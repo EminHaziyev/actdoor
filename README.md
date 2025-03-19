@@ -27,7 +27,7 @@ If you don't change anything on document in 20 seconds, it will change your acti
 
 
 ### API Documentation
-API link: `https://actdoor.onrender.com/api/getActivity/{username}`
+API link (must write both of params): `https://actdoor.onrender.com/api/getActivity/{username}`
 
 
 ## `?type=rectangle`
