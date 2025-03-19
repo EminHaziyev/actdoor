@@ -56,11 +56,11 @@ API link: `https://actdoor.onrender.com/api/getActivity/{username}`
 ## Iframe
 For `?type=square `
 
-`<iframe src="https://actdoor.onrender.com/api/getActivity/EminHaziyev?type=square&theme=dark"  width="190px" height="240px" frameborder="0"></iframe>`
+`<iframe src="https://actdoor.onrender.com/api/getActivity/{username}?type=square&theme=dark"  width="190px" height="240px" frameborder="0"></iframe>`
 
 For `?type=rectangle`
 
-`<iframe src="https://actdoor.onrender.com/api/getActivity/EminHaziyev?type=rectangle&theme=dark" width="190px" height="340px" frameborder="0"></iframe>`
+`<iframe src="https://actdoor.onrender.com/api/getActivity/{username}?type=rectangle&theme=dark" width="190px" height="340px" frameborder="0"></iframe>`
 
 ## Authors
 
