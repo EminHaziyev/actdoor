@@ -134,52 +134,54 @@
     </style>
 </head>
 <body>
-    <div class="vscode-card" id="card">
-        <!-- Card Header -->
-        <div class="card-header">
-            <svg class="vscode-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                <path fill="#29b6f6" d="M44,11.11v25.78c0,1.27-0.79,2.4-1.98,2.82l-8.82,4.14L34,33V15L33.2,4.15l8.82,4.14 C43.21,8.71,44,9.84,44,11.11z"></path>
-                <path fill="#0277bd" d="M9,33.896L34,15V5.353c0-1.198-1.482-1.758-2.275-0.86L4.658,29.239 c-0.9,0.83-0.849,2.267,0.107,3.032c0,0,1.324,1.232,1.803,1.574C7.304,34.37,8.271,34.43,9,33.896z"></path>
-                <path fill="#0288d1" d="M9,14.104L34,33v9.647c0,1.198-1.482,1.758-2.275,0.86L4.658,18.761 c-0.9-0.83-0.849-2.267,0.107-3.032c0,0,1.324-1.232,1.803-1.574C7.304,13.63,8.271,13.57,9,14.104z"></path>
-            </svg>
-            <span class="title" id="text3">Current Activity</span>
-        </div>
-
-        <!-- Activity Information -->
-        <div class="activity-info" id="activity-info">
-            <div class="file-structure">
-                <!-- Folder Info -->
-                <div class="folder-info">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#e6b45a" stroke-width="2">
-                        <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                    </svg>
-                    <span class="folder-name" id="text1"><%= activity.folderName %></span>
+    <a href="https://actdoor.onrender.com" style="text-decoration: none;">
+        <div class="vscode-card" id="card">
+            <!-- Card Header -->
+            <div class="card-header">
+                <svg class="vscode-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                    <path fill="#29b6f6" d="M44,11.11v25.78c0,1.27-0.79,2.4-1.98,2.82l-8.82,4.14L34,33V15L33.2,4.15l8.82,4.14 C43.21,8.71,44,9.84,44,11.11z"></path>
+                    <path fill="#0277bd" d="M9,33.896L34,15V5.353c0-1.198-1.482-1.758-2.275-0.86L4.658,29.239 c-0.9,0.83-0.849,2.267,0.107,3.032c0,0,1.324,1.232,1.803,1.574C7.304,34.37,8.271,34.43,9,33.896z"></path>
+                    <path fill="#0288d1" d="M9,14.104L34,33v9.647c0,1.198-1.482,1.758-2.275,0.86L4.658,18.761 c-0.9-0.83-0.849-2.267,0.107-3.032c0,0,1.324-1.232,1.803-1.574C7.304,13.63,8.271,13.57,9,14.104z"></path>
+                </svg>
+                <span class="title" id="text3">Current Activity</span>
+            </div>
+    
+            <!-- Activity Information -->
+            <div class="activity-info" id="activity-info">
+                <div class="file-structure">
+                    <!-- Folder Info -->
+                    <div class="folder-info">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#e6b45a" stroke-width="2">
+                            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                        </svg>
+                        <span class="folder-name" id="text1"><%= activity.folderName %></span>
+                    </div>
+    
+                    <!-- File Info -->
+                    <div class="file-info">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#75beff" stroke-width="2">
+                            <path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/>
+                            <path d="M13 2v7h7"/>
+                        </svg>
+                        <span class="file-name" id="text2"><%= activity.fileName %></span>
+                    </div>
                 </div>
-
-                <!-- File Info -->
-                <div class="file-info">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#75beff" stroke-width="2">
-                        <path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/>
-                        <path d="M13 2v7h7"/>
-                    </svg>
-                    <span class="file-name" id="text2"><%= activity.fileName %></span>
+    
+                <!-- Status Bar -->
+                <div class="status-bar">
+                    <div class="elapsed-time-container">
+                        <svg class="icon clock-icon" viewBox="0 0 24 24" fill="none" stroke="#858585" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        <span class="elapsed-time" id="elapsed-time">
+                            00:00:00
+                        </span>
+                    </div>
                 </div>
             </div>
-
-            <!-- Status Bar -->
-            <div class="status-bar">
-                <div class="elapsed-time-container">
-                    <svg class="icon clock-icon" viewBox="0 0 24 24" fill="none" stroke="#858585" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 6v6l4 2"/>
-                    </svg>
-                    <span class="elapsed-time" id="elapsed-time">
-                        00:00:00
-                    </span>
-                </div>
-            </div>
         </div>
-    </div>
+    </a>
 
     <script>
 
