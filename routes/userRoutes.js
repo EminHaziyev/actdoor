@@ -12,7 +12,7 @@ router.get('/login', (req, res) => res.render('login'));
 router.get('/', (req, res) => res.render('index'));
 router.post("/resetkey", authMiddleware.ensureAuthenticated, (req, res) => {
   const user = req.user;
-  user.uniqueKey = Math.random().toString(36).substring(2, 25);
+  user.uniqueKey = "actd-"+Math.random().toString(36).substring(2, 50);
   user.save()
     .then(() => res.redirect('/profile'))
     .catch(err => res.status(400).json({ message: 'Error resetting key' }));
