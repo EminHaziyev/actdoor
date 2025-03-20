@@ -60,7 +60,7 @@ For `?type=square `
 
 For `?type=rectangle`
 
-`<iframe src="https://actdoor.onrender.com/api/getActivity/{username}?type=rectangle&theme=dark" width="190px" height="340px" frameborder="0"></iframe>`
+`<iframe src="https://actdoor.onrender.com/api/getActivity/{username}?type=rectangle&theme=dark" width="110px" height="340px" frameborder="0"></iframe>`
 
 ## Authors
 
