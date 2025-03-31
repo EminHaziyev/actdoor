@@ -7,5 +7,6 @@ const router = express.Router();
 router.get('/auth/github', passport.authenticate('github', { scope: ['user:email'] }));
 router.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), authController.githubCallback);
 router.get('/logout', authController.logout);
+router.post('/auth/refresh', authController.refreshToken);
 
 module.exports = router;
