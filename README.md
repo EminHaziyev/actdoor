@@ -49,6 +49,13 @@ API link (must write both of params): `https://actdoor.onrender.com/api/getActiv
 
 ![](https://github.com/EminHaziyev/actdoor/blob/main/public/light2.png?raw=true)
 
+## `?type=github`
+
+This allows us to show our VS Code activity in .md files
+
+![](https://actdoor.onrender.com/api/getActivity/EminHaziyev?type=github&theme=dark)
+
+
 
 ## Upcoming features
 `?type=raw` for custom designs
