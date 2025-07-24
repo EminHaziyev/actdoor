@@ -42,3 +42,15 @@ exports.refreshToken = (req, res) => {
     res.json({ accessToken: newAccessToken });
   });
 };
+
+
+exports.logout = (req, res) => {
+  res.clearCookie('refreshToken', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'Strict',
+  });
+
+  req.logout?.(); 
+  res.json({ message: 'Logged out successfully' });
+};
