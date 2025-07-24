@@ -9,17 +9,9 @@ const generateRefreshToken = (user) => {
   return jwt.sign({ id: user.githubId }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '7d' });
 };
 
-exports.githubCallback = async (req, res) => {
-  const accessToken = generateAccessToken(req.user);
-  const refreshToken = generateRefreshToken(req.user);
-
-  // Store refresh token in DB (optional) or send it in HTTP-only cookie
-  res.cookie('refreshToken', refreshToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'Strict',
-  });
-
+exports.githubCallback = (req, res) => {
+  const token = jwt.sign({ id: req.user.githubId, username: req.user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+  res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', maxAge: 3600000 });
   res.redirect('/profile');
 };
 
