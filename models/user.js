@@ -21,9 +21,10 @@ const userSchema = new mongoose.Schema({
   message: {
     type: Boolean
   },
-  updatedAt:{
-    default: new Date()
-  } 
+  updatedAt: {
+    type: Date,
+    default: () => new Date()
+  }
 });
 
 userSchema.pre('save', function (next) {
