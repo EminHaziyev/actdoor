@@ -5,6 +5,8 @@ const authenticateWithToken = require("../middleware/authWithToken");
 const apiLimiter = require("../middleware/rateLimit");
 const router = express.Router();
 
+const { getSvgRectangle, getSvgEmpty } = require("./svgFiles");
+
 router.post("/setActivity", apiLimiter, authenticateWithToken, (req, res) => {
   const apiKey = req.apiKey;
 
@@ -46,7 +48,33 @@ router.get("/getActivity/:username", async (req, res) => {
     res.render("square", { activity: user.activity });
   } else if (type == "rectangle") {
     res.render("rectangle", { activity: user.activity });
-  } else {
+  }else if (type == "github") {
+    const seconds = user.activity.time;
+    const file = user.activity.fileName;
+    const folder = user.activity.folderName;
+
+    if(seconds === -1) {
+      const svg = getSvgEmpty();
+      res.setHeader("Content-Type", "image/svg+xml");
+      res.setHeader("Cache-Control", "no-cache");
+      res.send(svg);
+    }
+    else{
+      const time = new Date(seconds * 1000).toISOString().slice(11, 19);
+      
+      console.log(folder, file, time);
+      const svg = getSvgRectangle(folder,file,time);
+      res.setHeader("Content-Type", "image/svg+xml");
+      res.setHeader("Cache-Control", "no-cache");
+      res.send(svg);
+    
+    }
+    
+    
+    
+    
+  }
+  else {
     res.json({ activity: user.activity });
   }
 });
