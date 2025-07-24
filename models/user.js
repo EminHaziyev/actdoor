@@ -16,6 +16,9 @@ const userSchema = new mongoose.Schema({
       fileName: "",
       time: 0
     })
+  },
+  message: {
+    type: Boolean
   }
   
 });
