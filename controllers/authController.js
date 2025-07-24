@@ -20,10 +20,7 @@ exports.githubCallback = async (req, res) => {
     sameSite: 'Strict',
   });
 
-  res.json({
-    message: 'Authentication successful',
-    accessToken,
-  });
+  res.redirect('/profile');
 };
 
 // Route to refresh the access token
@@ -44,13 +41,16 @@ exports.refreshToken = (req, res) => {
 };
 
 
-exports.logout = (req, res) => {
-  res.clearCookie('refreshToken', {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'Strict',
-  });
+exports.logout = (req, res, next) => {
+  req.logout((err) => {
+    if (err) return next(err);
 
-  req.logout?.(); 
-  res.json({ message: 'Logged out successfully' });
+    res.clearCookie('refreshToken', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'Strict',
+    });
+
+    res.json({ message: 'Logged out successfully' });
+  });
 };
