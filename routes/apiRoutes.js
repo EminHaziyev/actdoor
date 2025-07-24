@@ -27,13 +27,24 @@ router.get('/getActivity/:username', async (req, res) => {
     if (!user) {
         return res.status(400).json({ message: 'User not found' });
     }
-    // res.json({activity: user.activity});
+    if (user.activity.startTime && user.activity.time !== -1) {
+        const startTime = new Date(user.activity.startTime);
+        const now = new Date();
+        const diffMs = now - startTime;
+        if (diffMs > 60 * 1000) { 
+            user.activity.time = -1;
+            await user.save();
+        }
+    }
 
     if (type == "square") {
         res.render('square', { activity: user.activity });
     }
     else if (type == "rectangle") {
         res.render('rectangle', { activity: user.activity });
+    }
+    else{
+        res.json({ activity: user.activity });
     }
 
 });

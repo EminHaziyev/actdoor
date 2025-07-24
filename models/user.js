@@ -14,7 +14,8 @@ const userSchema = new mongoose.Schema({
     default: () => ({
       folderName: "",
       fileName: "",
-      time: 0
+      time: 0,
+      startTime: new Date(),
     })
   },
   message: {
