@@ -27,10 +27,11 @@ router.get('/getActivity/:username', async (req, res) => {
     if (!user) {
         return res.status(400).json({ message: 'User not found' });
     }
-    if (user.activity.startTime && user.activity.time !== -1) {
-        const startTime = new Date(user.activity.startTime);
+    if (user.updatedAt && user.activity.time !== -1) {
+        
+        const startTime = new Date(user.updatedAt);
         const now = new Date();
-        const diffMs = now - startTime;
+        const diffMs = now.getTime() - startTime.getTime();
         if (diffMs > 60 * 1000) { 
             user.activity.time = -1;
             await user.save();

@@ -20,12 +20,15 @@ const userSchema = new mongoose.Schema({
   },
   message: {
     type: Boolean
-  }
+  },
+  updatedAt:{
+    default: new Date()
+  } 
 });
 
 userSchema.pre('save', function (next) {
   if (this.isModified('activity')) {
-    this.activity.updatedAt = new Date();
+    this.updatedAt = new Date();
   }
   next();
 });
